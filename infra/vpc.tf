@@ -55,7 +55,7 @@ resource "aws_subnet" "private" {
 # Create the NAT gateway
 resource "aws_nat_gateway" "main" {
   count = length(var.availability_zones)
-  allocation_id = aws_eip.main[count].id
+  allocation_id = aws_eip.main[count.index].id
   subnet_id = element(aws_subnet.public.*.id, count.index)
 }
 
