@@ -5,6 +5,11 @@ import time
 
 firehose = boto3.client('firehose')
 
+# Direct PUT is a method to send data directly from the clients to Kinesis Data Firehose.
+# Here we will use a script to send data to Firehose with Direct PUT using AWS SDK for Python (boto3).
+# Firehose receives the records and delivers them to S3 into a configured bucket/folder and partitions the incoming records based on the their arrival date and time.
+
+
 parser = argparse.ArgumentParser(__file__, description="Firehose event generator")
 parser.add_argument("--input", "-i", dest='input_file', help="Input log file, default is http.log", default="http.log.gz")
 parser.add_argument("--stream", "-s", dest='output_stream', help="Firehose Stream name")
