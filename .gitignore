@@ -1,0 +1,4 @@
+data
+data/*
+infra/.terraform.lock.hcl
+infra/.terraform/
